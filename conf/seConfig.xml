@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <processInMemory>true</processInMemory>
+    <defaultTermLangCode>sv</defaultTermLangCode>
+    <defaultTermDescriptionType>900000000000013009</defaultTermDescriptionType>
+    <defaultTermLanguageRefset>46011000052107</defaultTermLanguageRefset>
+    <normalizeTextIndex>false</normalizeTextIndex>
+    <createCompleteConceptsFile>false</createCompleteConceptsFile>
+    <editionName>Swedish Edition</editionName>
+    <databaseName>se-edition</databaseName>
+    <effectiveTime>20150531</effectiveTime>
+    <expirationTime>20160601</expirationTime>
+    <outputFolder>se-edition</outputFolder>
+    <foldersBaselineLoad>
+		<folder>$PATH_TO_SNOMED_RELEASE/Snapshot</folder>
+    	<folder>$PATH_TO_EXTENSION_RELEASE/Snapshot</folder>
+    </foldersBaselineLoad>
+    <modulesToIgnoreBaselineLoad>
+    </modulesToIgnoreBaselineLoad>
+    <foldersExtensionLoad>
+    </foldersExtensionLoad>
+    <modulesToIgnoreExtensionLoad>
+    </modulesToIgnoreExtensionLoad>
+</config>
