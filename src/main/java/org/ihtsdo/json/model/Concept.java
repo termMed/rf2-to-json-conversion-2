@@ -16,11 +16,10 @@ public class Concept extends ConceptDescriptor {
     List<RefsetMembership> memberships;
     List<Description> descriptions;
     List<Relationship> relationships;
-    List<Relationship> statedRelationships;
-    List<Relationship> additionalRelationships;
     boolean isLeafInferred;
     boolean isLeafStated;
-    String fsn;
+    String fullySpecifiedName;
+    String v;
 
     String semtag;
     List<String> inferredAncestors;
@@ -53,14 +52,6 @@ public class Concept extends ConceptDescriptor {
 		this.relationships = relationships;
 	}
 
-	public List<Relationship> getStatedRelationships() {
-		return statedRelationships;
-	}
-
-	public void setStatedRelationships(List<Relationship> statedRelationships) {
-		this.statedRelationships = statedRelationships;
-	}
-
     public boolean isLeafInferred() {
         return isLeafInferred;
     }
@@ -77,13 +68,12 @@ public class Concept extends ConceptDescriptor {
         this.isLeafStated = isLeafStated;
     }
 
-    public String getFsn() {
-        return fsn;
-    }
-
-    public void setFsn(String fsn) {
-        this.fsn = fsn;
-    }
+	public String getFullySpecifiedName() {
+		return fullySpecifiedName;
+	}
+	public void setFullySpecifiedName(String fullySpecifiedName) {
+		this.fullySpecifiedName = fullySpecifiedName;
+	}
 
     public String getSemtag() {
         return semtag;
@@ -109,12 +99,12 @@ public class Concept extends ConceptDescriptor {
         this.statedAncestors = statedAncestors;
     }
 
-	public List<Relationship> getAdditionalRelationships() {
-		return additionalRelationships;
+	public String getV() {
+		return v;
 	}
 
-	public void setAdditionalRelationships(
-			List<Relationship> additionalRelationships) {
-		this.additionalRelationships = additionalRelationships;
+	public void setV(String v) {
+		this.v = v;
 	}
+
 }
