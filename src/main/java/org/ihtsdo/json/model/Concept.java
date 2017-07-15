@@ -18,7 +18,6 @@ public class Concept extends ConceptDescriptor {
     List<Relationship> relationships;
     boolean isLeafInferred;
     boolean isLeafStated;
-    String fullySpecifiedName;
     String v;
 
     String semtag;
@@ -67,13 +66,6 @@ public class Concept extends ConceptDescriptor {
     public void setLeafStated(boolean isLeafStated) {
         this.isLeafStated = isLeafStated;
     }
-
-	public String getFullySpecifiedName() {
-		return fullySpecifiedName;
-	}
-	public void setFullySpecifiedName(String fullySpecifiedName) {
-		this.fullySpecifiedName = fullySpecifiedName;
-	}
 
     public String getSemtag() {
         return semtag;

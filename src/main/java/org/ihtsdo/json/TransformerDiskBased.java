@@ -95,6 +95,7 @@ public class TransformerDiskBased {
 	private String[] wordSeparators;
 	private boolean processInMemory;
 	private List<String> emptyList;
+	private String version;
 
     public TransformerDiskBased() throws IOException {
 		langCodes = new HashMap<String, String>();
@@ -111,6 +112,10 @@ public class TransformerDiskBased {
     public void convert(TransformerConfig config) throws Exception {
     	processInMemory=config.isProcessInMemory();
     	emptyList=new ArrayList<String>();
+    	version=config.getVersion();
+    	if (version==null){
+    		version="2";
+    	}
         if (processInMemory) {
             concepts = new HashMap<String, ConceptDescriptor>();
             descriptions = new HashMap<String, List<LightDescription>>();
@@ -923,7 +928,7 @@ public class TransformerDiskBased {
 			Concept cpt = new Concept();
 			ConceptDescriptor cptdesc = concepts.get(cptId);
 
-			cpt.setV("2");
+			cpt.setV(version);
 			cpt.setConceptId(cptId);
 			cpt.setActive(cptdesc.isActive());
 			cpt.setPreferredTerm(cptdesc.getPreferredTerm());
@@ -1099,6 +1104,7 @@ public class TransformerDiskBased {
 						r.setModifier(newLightConceptDescriptor(MODIFIER_ID));
 						r.setSourceId(cptId);
 						r.setDestination(concepts.get(lrel.getTarget()));
+						r.getDestination().setFullySpecifiedName(cptFSN.get(lrel.getTarget()));
 						r.setType(newLightConceptDescriptor(lrel.getType()));
 						r.setCharacteristicType(newLightConceptDescriptor(lrel.getCharType()));
 						r.setTargetMemberships(getMemberships(lrel.getTarget()));

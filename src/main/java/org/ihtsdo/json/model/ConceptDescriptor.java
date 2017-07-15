@@ -4,6 +4,7 @@ public class ConceptDescriptor extends Component{
 
     String conceptId;
 	String preferredTerm;
+    String fullySpecifiedName;
     LightConceptDescriptor definitionStatus;
 	int statedDescendants;
 	int inferredDescendants;
@@ -36,6 +37,12 @@ public class ConceptDescriptor extends Component{
 	}
 	public void setDefinitionStatus(LightConceptDescriptor definitionStatus) {
 		this.definitionStatus = definitionStatus;
+	}
+	public String getFullySpecifiedName() {
+		return fullySpecifiedName;
+	}
+	public void setFullySpecifiedName(String fullySpecifiedName) {
+		this.fullySpecifiedName = fullySpecifiedName;
 	}
 	
 }
