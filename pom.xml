@@ -59,6 +59,8 @@
                                         <descriptorRefs>
                                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                                         </descriptorRefs>
+										<finalName>Conversion_runner_browser_v2</finalName>
+										<appendAssemblyId>false</appendAssemblyId>
                                 </configuration>
                                 <executions>
                                         <execution>
@@ -70,68 +72,77 @@
                                         </execution>
                                 </executions>
                         </plugin>
-                        <plugin>
-                                <groupId>org.vafer</groupId>
-                                <artifactId>jdeb</artifactId>
-                                <version>1.1.1</version>
-                                <executions>
-                                        <execution>
-                                                <phase>verify</phase>
-                                                <goals>
-                                                        <goal>jdeb</goal>
-                                                </goals>
-                                                <configuration>
-                                                        <deb>${project.build.directory}/${project.artifactId}-${project.version}-all.deb</deb>
-                                                        <controlDir>${basedir}/deb/control</controlDir>
-                                                        <snapshotExpand>true</snapshotExpand>
-                                                        <snapshotEnv>BUILD_NUMBER</snapshotEnv>
-                                                        <verbose>true</verbose>
-                                                        <classifier>all</classifier>
-                                                        <signPackage>false</signPackage>
-                                                        <dataSet>
-                                                                <data>
-                                                                        <src>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</src>
-                                                                        <type>file</type>
-                                                                        <mapper>
-                                                                                <type>perm</type>
-                                                                                <prefix>/opt/${project.artifactId}</prefix>
-                                                                        </mapper>
-                                                                </data>
-                                                                <data>
-                                                                        <src>${basedir}/conf</src>
-                                                                        <type>directory</type>
-                                                                        <mapper>
-                                                                                <type>perm</type>
-                                                                                <prefix>/opt/${project.artifactId}/conf</prefix>
-                                                                        </mapper>
-                                                                </data>
-                                                                <data>
-                                                                        <src>${basedir}/scripts</src>
-                                                                        <type>directory</type>
-                                                                        <mapper>
-                                                                                <type>perm</type>
-                                                                                <prefix>/opt/${project.artifactId}/</prefix>
-                                                                                <filemode>755</filemode>
-                                                                        </mapper>
-                                                                </data>
 
-                                                        </dataSet>
-                                                </configuration>
-                                        </execution>
-                                </executions>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-compiler-plugin</artifactId>
+                                <configuration>
+                                        <source>1.6</source>
+                                        <target>1.6</target>
+                                </configuration>
                         </plugin>
+                        <!--<plugin>-->
+                                <!--<groupId>org.vafer</groupId>-->
+                                <!--<artifactId>jdeb</artifactId>-->
+                                <!--<version>1.1.1</version>-->
+                                <!--<executions>-->
+                                        <!--<execution>-->
+                                                <!--<phase>verify</phase>-->
+                                                <!--<goals>-->
+                                                        <!--<goal>jdeb</goal>-->
+                                                <!--</goals>-->
+                                                <!--<configuration>-->
+                                                        <!--<deb>${project.build.directory}/${project.artifactId}-${project.version}-all.deb</deb>-->
+                                                        <!--<controlDir>${basedir}/deb/control</controlDir>-->
+                                                        <!--<snapshotExpand>true</snapshotExpand>-->
+                                                        <!--<snapshotEnv>BUILD_NUMBER</snapshotEnv>-->
+                                                        <!--<verbose>true</verbose>-->
+                                                        <!--<classifier>all</classifier>-->
+                                                        <!--<signPackage>false</signPackage>-->
+                                                        <!--<dataSet>-->
+                                                                <!--<data>-->
+                                                                        <!--<src>${project.build.directory}/${project.build.finalName}-jar-with-dependencies.jar</src>-->
+                                                                        <!--<type>file</type>-->
+                                                                        <!--<mapper>-->
+                                                                                <!--<type>perm</type>-->
+                                                                                <!--<prefix>/opt/${project.artifactId}</prefix>-->
+                                                                        <!--</mapper>-->
+                                                                <!--</data>-->
+                                                                <!--<data>-->
+                                                                        <!--<src>${basedir}/conf</src>-->
+                                                                        <!--<type>directory</type>-->
+                                                                        <!--<mapper>-->
+                                                                                <!--<type>perm</type>-->
+                                                                                <!--<prefix>/opt/${project.artifactId}/conf</prefix>-->
+                                                                        <!--</mapper>-->
+                                                                <!--</data>-->
+                                                                <!--<data>-->
+                                                                        <!--<src>${basedir}/scripts</src>-->
+                                                                        <!--<type>directory</type>-->
+                                                                        <!--<mapper>-->
+                                                                                <!--<type>perm</type>-->
+                                                                                <!--<prefix>/opt/${project.artifactId}/</prefix>-->
+                                                                                <!--<filemode>755</filemode>-->
+                                                                        <!--</mapper>-->
+                                                                <!--</data>-->
+
+                                                        <!--</dataSet>-->
+                                                <!--</configuration>-->
+                                        <!--</execution>-->
+                                <!--</executions>-->
+                        <!--</plugin>-->
                 </plugins>
         </build>
-        <distributionManagement>
-                <repository>
-                        <id>ihtsdo-public-nexus</id>
-                        <name>IHTSDO Public Nexus Releases</name>
-                        <url>https://maven.ihtsdotools.org/content/repositories/releases/</url>
-                </repository>
-                <snapshotRepository>
-                        <id>ihtsdo-public-nexus</id>
-                        <name>IHTSDO Public Nexus Snapshots</name>
-                        <url>https://maven.ihtsdotools.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-        </distributionManagement>
+        <!--<distributionManagement>-->
+                <!--<repository>-->
+                        <!--<id>ihtsdo-public-nexus</id>-->
+                        <!--<name>IHTSDO Public Nexus Releases</name>-->
+                        <!--<url>https://maven.ihtsdotools.org/content/repositories/releases/</url>-->
+                <!--</repository>-->
+                <!--<snapshotRepository>-->
+                        <!--<id>ihtsdo-public-nexus</id>-->
+                        <!--<name>IHTSDO Public Nexus Snapshots</name>-->
+                        <!--<url>https://maven.ihtsdotools.org/content/repositories/snapshots/</url>-->
+                <!--</snapshotRepository>-->
+        <!--</distributionManagement>-->
 </project>

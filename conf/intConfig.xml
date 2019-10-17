@@ -2,17 +2,17 @@
 <config>
     <processInMemory>true</processInMemory>
     <defaultTermLangCode>en</defaultTermLangCode>
-    <defaultTermDescriptionType>900000000000003001</defaultTermDescriptionType>
+    <defaultTermDescriptionType>900000000000013009</defaultTermDescriptionType>
     <defaultTermLanguageRefset>900000000000509007</defaultTermLanguageRefset>
     <normalizeTextIndex>true</normalizeTextIndex>
     <createCompleteConceptsFile>true</createCompleteConceptsFile>
     <editionName>International Edition</editionName>
     <databaseName>en-edition</databaseName>
-    <effectiveTime>20150131</effectiveTime>
-    <expirationTime>20160201</expirationTime>
+    <effectiveTime>20170131</effectiveTime>
+    <expirationTime>20170201</expirationTime>
     <outputFolder>intl-edition</outputFolder>
     <foldersBaselineLoad>
-		<folder>$PATH_TO_SNOMED_RELEASE/Snapshot</folder>
+		<folder>/Users/ar/Downloads/SnomedCT_RF2Release_INT_20170131/Snapshot</folder>
     </foldersBaselineLoad>
     <modulesToIgnoreBaselineLoad>
     </modulesToIgnoreBaselineLoad>
